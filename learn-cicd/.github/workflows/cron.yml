@@ -1,0 +1,11 @@
+name: Test Cron Job
+
+on:
+  schedule:
+    - cron: "* * * * *"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Cron job is running!"

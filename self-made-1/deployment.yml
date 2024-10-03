@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: self-made-1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: self-made-1
+  template:
+    metadata:
+      labels:
+        app: self-made-1
+    spec:
+      containers:
+      - name: self-made-1
+        image: infectedshawarma/self-made-1:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3000

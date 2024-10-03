@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1 # Api Version
+kind: Ingress           #Service type: ingress
+metadata:                #line 3
+  name: ingress-nextjs-service
+  labels:
+    name: ingress-nextjs-service  #line 6
+  annotations:                     #line7
+    nginx.ingress.kubernetes.io/rewrite-target: /$1 #line8
+spec:
+   ingressClassName: nginx  #line10
+   rules:
+     - host: "localhost" #line12
+       http:
+        paths:
+          - path: /?(.*)    #line15
+            pathType: Prefix #line16
+            backend:  #line17
+              service:
+                name: project-1-service  #line19
+                port:
+                  number: 3000 #line21

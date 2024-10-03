@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: self-made-1
+spec:
+  selector:
+    app: self-made-1
+  type: NodePort
+  ports:
+  - name: self-made-1
+    protocol: TCP
+    port: 80
+    targetPort: 3000

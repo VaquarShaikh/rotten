@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: infectedshawarma/project-1
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: localhost
+      paths:
+        - path: /next
+          pathType: Prefix
